@@ -1,12 +1,12 @@
 # Time:  O(1), per operation.
 # Space: O(k), k is the capacity of cache.
 
-# Design and implement a data structure for Least Recently Used (LRU) cache. 
+# Design and implement a data structure for Least Recently Used (LRU) cache.
 # It should support the following operations: get and set.
-# 
+#
 # get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
-# 
-# set(key, value) - Set or insert the value if the key is not already present. 
+#
+# set(key, value) - Set or insert the value if the key is not already present.
 # When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
 
 class ListNode:
@@ -20,7 +20,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
         self.tail = None
-    
+
     def insert(self, node):
         if self.head is None:
             self.head = node
@@ -28,7 +28,7 @@ class LinkedList:
             self.tail.next = node
             node.prev = self.tail
         self.tail = node
-            
+
     def delete(self, node):
         if node.prev:
             node.prev.next = node.next
@@ -47,12 +47,12 @@ class LRUCache:
         self.list = LinkedList()
         self.dict = {}
         self.capacity = capacity
-        
+
     def _insert(self, key, val):
         node = ListNode(key, val)
         self.list.insert(node)
         self.dict[key] = node
-        
+
 
     # @return an integer
     def get(self, key):
@@ -62,7 +62,7 @@ class LRUCache:
             self._insert(key, val)
             return val
         return -1
-        
+
 
     # @param key, an integer
     # @param value, an integer
@@ -74,8 +74,8 @@ class LRUCache:
             del self.dict[self.list.head.key]
             self.list.delete(self.list.head)
         self._insert(key, val)
- 
- 
+
+
 import collections
 class LRUCache2:
     def __init__(self, capacity):
@@ -95,8 +95,8 @@ class LRUCache2:
             del self.cache[key]
         elif len(self.cache) == self.capacity:
             self.cache.popitem(last=False)
-        self.cache[key] = value   
-        
+        self.cache[key] = value
+
 if __name__ == "__main__":
     cache = LRUCache(3)
     cache.set(1, 1)
@@ -105,4 +105,4 @@ if __name__ == "__main__":
     print cache.get(1)
     cache.set(4, 4)
     print cache.get(2)
-    
+

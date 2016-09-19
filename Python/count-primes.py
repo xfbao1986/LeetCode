@@ -13,7 +13,7 @@ class Solution:
     def countPrimes(self, n):
         if n <= 2:
             return 0
-        
+
         is_prime = [True] * n
         num = n / 2
         for i in xrange(3, n, 2):
@@ -30,4 +30,10 @@ class Solution:
                 num -= 1
                 is_prime[j] = False
 
+        print is_prime
         return num
+
+if __name__ == "__main__":
+    num = 9
+    result = Solution().countPrimes(num)
+    print result

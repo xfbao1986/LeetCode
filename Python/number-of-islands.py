@@ -1,8 +1,8 @@
 # Time:  O(m * n)
 # Space: O(m * n)
 #
-# Given a 2d grid map of '1's (land) and '0's (water), count the number of islands. 
-# An island is surrounded by water and is formed by connecting adjacent lands horizontally 
+# Given a 2d grid map of '1's (land) and '0's (water), count the number of islands.
+# An island is surrounded by water and is formed by connecting adjacent lands horizontally
 # or vertically. You may assume all four edges of the grid are all surrounded by water.
 #
 # Example 1:
@@ -28,11 +28,11 @@ class Solution:
     def numIslands(self, grid):
         if not grid:
             return 0
-    
+
         row = len(grid)
         col = len(grid[0])
         used = [[False for j in xrange(col)] for i in xrange(row)]
-    
+
         count = 0
         for i in xrange(row):
             for j in xrange(col):
@@ -45,7 +45,7 @@ class Solution:
         if grid[x][y] == '0' or used[x][y]:
             return
         used[x][y] = True
-    
+
         if x != 0:
             self.dfs(grid, used, row, col, x - 1, y)
         if x != row - 1:

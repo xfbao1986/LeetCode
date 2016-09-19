@@ -45,7 +45,7 @@ class RandomizedSet(object):
         """
         self.__set = []
         self.__used = {}
-        
+
 
     def insert(self, val):
         """
@@ -60,7 +60,7 @@ class RandomizedSet(object):
         self.__used[val] = len(self.__set)-1
 
         return True
-        
+
 
     def remove(self, val):
         """
@@ -88,7 +88,21 @@ class RandomizedSet(object):
 
 
 # Your RandomizedSet object will be instantiated and called as such:
-# obj = RandomizedSet()
-# param_1 = obj.insert(val)
-# param_2 = obj.remove(val)
-# param_3 = obj.getRandom()
+obj = RandomizedSet()
+print "------------i1"
+param_1 = obj.insert(1)
+print "------------i2"
+param_1 = obj.insert(2)
+print "------------i2"
+param_1 = obj.insert(2)
+print "------------i3"
+param_1 = obj.insert(3)
+print "------------i4"
+param_1 = obj.insert(4)
+print "------------i5"
+param_1 = obj.insert(5)
+print "------------r1"
+param_2 = obj.remove(1)
+print "------------r5"
+param_2 = obj.remove(5)
+param_3 = obj.getRandom()
